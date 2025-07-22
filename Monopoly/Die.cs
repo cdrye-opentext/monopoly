@@ -13,13 +13,9 @@ namespace Monopoly
     }
     private static Random _random = new Random();
 
-    public virtual void roll()
-    {
-
-    }
     public void Roll()
     {
-      _faceValue = _random.Next(1, 7);
+      _faceValue = _random.Next(1, 6);
     }
   }
 }
