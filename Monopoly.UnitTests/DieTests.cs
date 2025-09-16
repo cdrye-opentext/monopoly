@@ -4,7 +4,7 @@
     public sealed class DieTests
     {
         [TestMethod]
-        public void Die_Rolls_Between_1_and_6()
+        public void Player_Can_Roll_Between_1_and_6()
         {
             // Arrange
             Die d = new Die();
@@ -21,7 +21,7 @@
         }
         
         [TestMethod]
-        public void Die_Roll_Player_Can_Roll_2_Dice()
+        public void Player_Can_Roll_2_Dice()
         {
             //Arrange
             //Create game
@@ -46,7 +46,7 @@
         }
 
         [TestMethod]
-        public void Handle_Double_Die_Roll()
+        public void Player_Gets_Another_Turn_After_Rolling_Doubles()
         {
             // Arrange
             Given_SetupGame();
@@ -60,6 +60,30 @@
             // Player 1 should have moved 6 spaces
             // Player 1 should have the ability to roll the dice again
 
+        }
+
+        [TestMethod]
+        [DataRow(2)]
+        [DataRow(3)]
+        [DataRow(4)]
+        [DataRow(5)]
+        public void Player_Can_Roll_Arbitrary_Number_Of_Dice(int numberOfDice)
+        {
+            Assert.Fail();
+        }
+        
+        [TestMethod]
+        [DataRow(7)]
+        public void Dice_Can_Have_More_Than_6_Sides(int numberOfSides)
+        {
+            Assert.Fail();
+        }
+        
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Dice_Cannot_Have_Less_Than_2_Sides()
+        {
+            Assert.Fail();
         }
 
 
