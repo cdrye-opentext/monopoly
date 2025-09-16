@@ -17,6 +17,7 @@ namespace Monopoly.ConsoleApp
       // Optional: Wait for input before closing
       //small change
       // Console.ReadLine();
+      // ccotton test
     }
   }
 }
