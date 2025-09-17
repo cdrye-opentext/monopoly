@@ -4,9 +4,9 @@ namespace Monopoly
   {
     // Implement GetRent method using TDD
 
-    public int GetRent(int i)
+    public int GetRent(Property property)
     {
-      return BaseRent;
+      return property.GetCurrnentRent();
     }
   }
 }
