@@ -50,18 +50,22 @@ namespace Monopoly.UnitTests
         {
             // this method would be called when a rule determines a player is bankrupt - no cash and no properties
             //Arrange
+
+            var playerAlice =  new Player("Alice");
             var players = new List<Player>() {
-                new Player("Alice"),
+                playerAlice,
                 new Player("Bob")
             };
             PlayerManager playerManager = new PlayerManager(players);
-            
+            playerAlice.UpdateCash(-200);
+
             //Act
-            playerManager.Players.RemoveAt(0); // remove Alice
+            playerManager.PlayTurn(playerAlice);
             
             //Assert
             Assert.IsTrue(playerManager.Players.Count == 1);
-            Assert.IsTrue(playerManager.Players[0].Name == "Bob");
+            var alice = playerManager.Players.FirstOrDefault(p => p.Name == "Alice");
+            Assert.IsNull(alice);
         }
         
     }
