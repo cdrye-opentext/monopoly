@@ -16,8 +16,8 @@ namespace Monopoly.UnitTests
         {
             //Arrange            
             var players = new List<Player>() {
-                new Player(),
-                new Player()
+                new Player("Alice"),
+                new Player("Bob")
             };
             //Act
             PlayerManager playerManager = new PlayerManager(players);
@@ -34,8 +34,8 @@ namespace Monopoly.UnitTests
         {
             //Arrange            
             var players = new List<Player>() {
-                new Player(),
-                new Player()
+                new Player("Alice"),
+                new Player("Alice")
             };
             //Act
             PlayerManager playerManager = new PlayerManager(players);
