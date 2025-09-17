@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Monopoly.UnitTests
 {
     [TestClass]
-    internal class PlayerManagerTest
+    public class PlayerManagerTest
     {
 
         [TestMethod]

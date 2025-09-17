@@ -4,20 +4,21 @@
   public class PlayerManager
   {
     // SRP violation: Handles player data, movement, money, properties, dice, and output
-    public List<string> Players = new List<string>();
+    public List<Player> Players = new List<Player>();
     public Dictionary<string, int> Money = new Dictionary<string, int>();
     public Dictionary<string, List<string>> Properties = new Dictionary<string, List<string>>();
     public Die Die = new Die(); // DIP violation: depends on concrete Die
 
-    public PlayerManager()
+    public PlayerManager(IEnumerable<Player> players)
     {
+      Players.AddRange(players);
       // OCP violation: Hardcoded player setup
-      Players.Add("Alice");
-      Players.Add("Bob");
-      Money["Alice"] = 1500;
-      Money["Bob"] = 1500;
-      Properties["Alice"] = new List<string>();
-      Properties["Bob"] = new List<string>();
+      // Players.Add("Alice");
+      // Players.Add("Bob");
+      // Money["Alice"] = 1500;
+      // Money["Bob"] = 1500;
+      // Properties["Alice"] = new List<string>();
+      // Properties["Bob"] = new List<string>();
     }
 
     // SRP & ISP violation: Does too much, no interface
@@ -55,7 +56,7 @@
     {
       foreach (var player in Players)
       {
-        Console.WriteLine(player + " has $" + Money[player] + " and owns: " + string.Join(", ", Properties[player]));
+        Console.WriteLine(player + " has $" + Money[player.Name] + " and owns: " + string.Join(", ", Properties[player.Name]));
       }
     }
   }
