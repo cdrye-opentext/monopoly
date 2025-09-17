@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,12 +13,14 @@ namespace Monopoly.UnitTests
 
         [TestMethod]
         public void PlayerManagerShouldHave2Players()
-        { 
-            //Arrange
-            PlayerManager playerManager = new PlayerManager();
-
+        {
+            //Arrange            
+            var players = new List<Player>() {
+                new Player(),
+                new Player()
+            };
             //Act
-            playerManager.PlayTurn("Alice");
+            PlayerManager playerManager = new PlayerManager(players);
 
             //Assert
             Assert.IsTrue(playerManager.Players.Count == 2);
@@ -29,14 +32,16 @@ namespace Monopoly.UnitTests
         [TestMethod]
         public void PlayerManager_AliceShouldHaveMoney()
         {
-            //Arrange
-            PlayerManager playerManager = new PlayerManager();
-
+            //Arrange            
+            var players = new List<Player>() {
+                new Player(),
+                new Player()
+            };
             //Act
-            playerManager.PlayTurn("Alice");
+            PlayerManager playerManager = new PlayerManager(players);
 
             //Assert
-            Assert.IsTrue(playerManager.Money["Alice"] > 0);
+            Assert.IsTrue(playerManager.Players[0].Money > 0);
 
         }
     }
