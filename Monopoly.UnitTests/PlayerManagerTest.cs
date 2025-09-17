@@ -44,5 +44,25 @@ namespace Monopoly.UnitTests
             Assert.IsTrue(playerManager.Players[0].Money > 0);
 
         }
+
+        [TestMethod]
+        public void PlayerManager_Can_Remove_Player()
+        {
+            // this method would be called when a rule determines a player is bankrupt - no cash and no properties
+            //Arrange
+            var players = new List<Player>() {
+                new Player("Alice"),
+                new Player("Bob")
+            };
+            PlayerManager playerManager = new PlayerManager(players);
+            
+            //Act
+            playerManager.Players.RemoveAt(0); // remove Alice
+            
+            //Assert
+            Assert.IsTrue(playerManager.Players.Count == 1);
+            Assert.IsTrue(playerManager.Players[0].Name == "Bob");
+        }
+        
     }
 }
