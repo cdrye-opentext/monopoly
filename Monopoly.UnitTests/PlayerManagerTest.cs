@@ -50,7 +50,6 @@ namespace Monopoly.UnitTests
         {
             // this method would be called when a rule determines a player is bankrupt - no cash and no properties
             //Arrange
-
             var playerAlice =  new Player("Alice");
             var players = new List<Player>() {
                 playerAlice,
