@@ -11,12 +11,13 @@ namespace Monopoly.UnitTests
     {
       // Arrange
       var calc = new RentCalculator();
+      var testProperty = new Property(10);
 
       // Act
-      int rent = calc.GetRent(10);
+      int rent = calc.GetRent(testProperty);
 
       // Assert
-      Assert.AreEqual(10, rent);
+      Assert.AreEqual(testProperty.BaseRent, 10);
     }
   }
 }
