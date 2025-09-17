@@ -13,7 +13,7 @@ namespace Monopoly.UnitTests
             var testProperty = new Property(10);
 
             // Act
-            int rent = testProperty.GetCurrnentRent();
+            int rent = testProperty.GetCurrentRent();
 
             // Assert
             Assert.AreEqual(rent, 10);
@@ -28,7 +28,7 @@ namespace Monopoly.UnitTests
 
             //Act
             testProperty.AddHouse();
-            var rent = testProperty.GetCurrnentRent();
+            var rent = testProperty.GetCurrentRent();
 
             //Assert
             Assert.AreEqual(rent, 70);

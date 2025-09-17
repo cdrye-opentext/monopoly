@@ -6,7 +6,7 @@ namespace Monopoly
 
     public int GetRent(Property property)
     {
-      return property.GetCurrnentRent();
+      return property.GetCurrentRent();
     }
   }
 }
